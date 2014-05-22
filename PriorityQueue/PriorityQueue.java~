@@ -1,0 +1,10 @@
+public class PriorityQueue {
+
+    private ArrayList<Patient>
+
+    public PriorityQueue() {
+    }
+
+    public boolean empty() {
+    }
+}
