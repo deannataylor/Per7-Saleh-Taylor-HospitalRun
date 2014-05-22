@@ -19,7 +19,7 @@ public class PriorityQueue {
     public Patient mostPriorityPatient() {
 	int maxPriority = 0;
 	int PriorityPosition = 0;
-	for (int i=0;i<patients.size()){
+	for (int i=0;i<patients.size();i++){
 		if (patient[i].getPriority() > maxPriority){
 			PriorityPosition = i;
 			maxPriority = patients[i].getPriority();
