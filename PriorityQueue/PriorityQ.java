@@ -1,6 +1,7 @@
 public class PriorityQueue {
 
     private ArrayList<Patient> patients;
+    private Patient beingWorkedOn;
 
     public PriorityQueue() {
     }
@@ -27,5 +28,10 @@ public class PriorityQueue {
 	}
 	return patients.remove(priorityPosition);
     }
+
+    public void setPatient(){
+	beingWorkedOn = mostPriorityPatient();
+    }
+   
 }
 
