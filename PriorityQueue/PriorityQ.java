@@ -16,8 +16,16 @@ public class PriorityQueue {
 	patients.add(p);
     }
 
-    public void getNext() {
-	int max
-	for (int i=0;i<patients.size(); 
+    public patient mostPriorityPatient() {
+	int maxPriority = 0;
+	int PriorityPosition = 0;
+	for (int i=0;i<patients.size()){
+		if (patient[i].getPriority() > maxPriority){
+			PriorityPosition = i;
+			maxPriority = patients[i].getPriority();
+		}
+	}
+	return patetients[priorityPosition]
     }
 }
+
