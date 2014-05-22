@@ -5,7 +5,7 @@ import java.util.*;
 public class Patient {
 
     String name;
-    String diseasename;
+    String diseaseName;
     int disease;
     int priority;
     Random r = new Random();
@@ -16,7 +16,7 @@ public class Patient {
     }
 
     public void assignName() {
-	String[] names = {"Ender Wiggin", "Ebenezer Scrooge", "Poseidon", "Robin Hood", "Felix the Cat", "Dracula", "Guybrush Threepwood", "King Arthur", "Donald Knuth", "Pinocchio", "Frankenstein", "Sherlock Holmes"}
+	String[] names = {"Ender Wiggin", "Ebenezer Scrooge", "Poseidon", "Robin Hood", "Felix the Cat", "Dracula", "Guybrush Threepwood", "King Arthur", "Donald Knuth", "Pinocchio", "Frankenstein", "Sherlock Holmes"};
 	name = names[r.nextInt(names.length)];
     }
 
@@ -41,6 +41,22 @@ public class Patient {
 
     public void updatePriority() {
 	priority = priority++;
+    }
+
+    public int getPriority() {
+	return priority;
+    }
+
+    public int getDisease() {
+	return disease;
+    }
+
+    public String getDiseaseName() {
+	return diseaseName;
+    }
+
+    public String getName() {
+	return name;
     }
 	
 }
