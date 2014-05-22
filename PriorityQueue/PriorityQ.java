@@ -25,7 +25,7 @@ public class PriorityQueue {
 			maxPriority = patients[i].getPriority();
 		}
 	}
-	return patients[priorityPosition]
+	return patients[priorityPosition];
     }
 }
 
