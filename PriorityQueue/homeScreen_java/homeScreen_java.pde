@@ -3,6 +3,7 @@
   String p = "PLAY";
   String i = "info";
   String n = "Emergency Dash";
+  int value = 0;
   
   public void setup() {
     size(640, 480);
@@ -13,7 +14,7 @@
   public void draw() {
    fill(255);
    rect(99, 49, 440, 70);
-   fill(0);
+   fill(value);
    textSize(55);
    text(n, 100, 50, 610, 500);
    image(HeartOne,280,225);
@@ -31,4 +32,13 @@
    textSize(25);
    text(i, 293, 350, 400, 500);
   }
+  
+  void mousePressed(){
+     if (mouseX > 270 && mouseX < 300 && mouseY >290 && mouseY < 310){
+          value = 200;
+     }
+   }
+
+
+  
 
