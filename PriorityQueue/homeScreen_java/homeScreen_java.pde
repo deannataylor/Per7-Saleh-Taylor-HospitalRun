@@ -24,8 +24,7 @@
     frameRate(10);
   }
   
-  public void draw(){
-    if (number == 0){
+  public void home(){
     fill(255);
      rect(99, 49, 440, 70);
      fill(value);
@@ -57,6 +56,11 @@
    image(bed, 560, 260);
    image(bed, 480, 400);
    doctor.display(0, 70);
+  }
+  
+  public void draw(){
+    if (number == 0){
+    home();
     }
    if (number == 1){
      background(255,0,0);
