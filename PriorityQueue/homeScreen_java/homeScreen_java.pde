@@ -59,7 +59,8 @@
   
   void mouseClicked(){
      if (mouseX > 267 && mouseX < 367 && mouseY > 290 && mouseY < 335){
-       value = 255;
+        noLoop();
+        background(0);
      }
    }
 
