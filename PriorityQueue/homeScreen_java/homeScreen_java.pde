@@ -9,6 +9,7 @@
   Animation doctor;
   float xpos, ypos;
   float docSpeed;
+  int number = 0;
   
   public void setup() {
     back = loadImage("backgroundpic.png");
@@ -24,6 +25,7 @@
   }
   
   public void draw(){
+    if (number == 0){
     fill(255);
      rect(99, 49, 440, 70);
      fill(value);
@@ -55,12 +57,18 @@
    image(bed, 560, 260);
    image(bed, 480, 400);
    doctor.display(0, 70);
+    }
+   if (number == 1){
+     background(255,0,0);
+   }
   }
   
   void mouseClicked(){
      if (mouseX > 267 && mouseX < 367 && mouseY > 290 && mouseY < 335){
         noLoop();
         background(0);
+        number++;
+        loop();
      }
    }
 
