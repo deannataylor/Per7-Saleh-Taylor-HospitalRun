@@ -1,4 +1,4 @@
-
+o
 class Animation{
   
   PImage[] images;
