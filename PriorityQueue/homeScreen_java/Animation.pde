@@ -1,9 +1,10 @@
-o
+
 class Animation{
   
   PImage[] images;
   int imageCount;
   int frame;
+  int xpos;
   
   Animation(String imagePrefix, int count){
      imageCount = count;

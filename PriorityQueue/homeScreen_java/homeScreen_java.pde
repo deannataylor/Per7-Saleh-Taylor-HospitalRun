@@ -1,6 +1,8 @@
-PImage back, HeartOne, bed, doctor,doctor1,doctor2,doctor3;
+PImage back, HeartOne, bed, doctor,doctor1,doctor2,doctor3, waiting;
 int docXcor=0, numStep=1;
 boolean drawing = true;
+int part = 0;
+boolean firstTime = true;
 
 void setup() {
     size(640,480);
@@ -11,7 +13,7 @@ void setup() {
 }
 
   void draw() {
-    if (drawing) {
+    if (part == 0) {
        setBackground();
        if (numStep == 5) {
          numStep = 0;
@@ -25,6 +27,12 @@ void setup() {
        }
        docXcor++;
        numStep++;
+    }
+    else if (part == 1){
+      setWait();
+      if(firstTime){
+        setNew();
+      }
     }
   }
   
@@ -69,9 +77,22 @@ void setup() {
     image(bed, 480, 400);
   }
   
+  void setWait(){
+    waiting = loadImage("waitingRoom.png");
+    background(waiting);
+  }
+  
+  void setNew(){
+    fill(255);
+    rect(100,400,450,100);
+    fill(0);
+    text("You have entered the waiting room. Here you will greet new patients", 100,400, 450, 500);
+  }
+  
   void mouseClicked(){
      if (mouseX > 267 && mouseX < 367 && mouseY > 290 && mouseY < 335){
         background(0);
         drawing = false;
+        part++;
      }
   }
