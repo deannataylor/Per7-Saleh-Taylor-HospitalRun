@@ -1,5 +1,6 @@
 PImage back, HeartOne, bed, doctor,doctor1,doctor2,doctor3, waiting;
 int docXcor=0, numStep=1;
+PImage[] doctors;
 boolean drawing = true;
 int part = 0;
 boolean firstTime = true;
@@ -7,25 +8,27 @@ int currentTime;
 
 void setup() {
     size(640,480);
+    loadDoctors();
     doctor = loadImage("Doc1.png");
     doctor2 = loadImage("Doc2.png");
     doctor3 = loadImage("Doc3.png");
 
 }
 
+void loadDoctors() {
+  doctors = new PImage[4];
+  for (int i=0;i<4;i++) {
+    doctors[i] = loadImage("Doc" + i + ".png");
+  }
+}
+
   void draw() {
     if (part == 0) {
        setBackground();
-       if (numStep == 5) {
+       if (numStep == 4) {
          numStep = 0;
        }
-       if (numStep == 1) {
-         image(doctor,docXcor,68);
-       } else if (numStep ==2 || numStep == 4) {
-         image(doctor2,docXcor,68);
-       } else if (numStep == 3) {
-         image(doctor3,docXcor,68);
-       }
+       image(doctors[numStep],docXcor,68);
        docXcor++;
        numStep++;
     }
