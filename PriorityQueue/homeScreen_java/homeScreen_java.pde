@@ -3,6 +3,7 @@ int docXcor=0, numStep=1;
 boolean drawing = true;
 int part = 0;
 boolean firstTime = true;
+int currentTime;
 
 void setup() {
     size(640,480);
@@ -29,9 +30,11 @@ void setup() {
        numStep++;
     }
     else if (part == 1){
-      setWait();
       if(firstTime){
-        setNew();
+        setWaitWith();
+      }
+      else if (millis() - currentTime > 2000) {
+       setWaitWithout();
       }
     }
   }
@@ -77,16 +80,20 @@ void setup() {
     image(bed, 480, 400);
   }
   
-  void setWait(){
+  void setWaitWithout(){
     waiting = loadImage("waitingRoom.png");
     background(waiting);
   }
   
-  void setNew(){
+  void setWaitWith(){
+     waiting = loadImage("waitingRoom.png");
+    background(waiting);
     fill(255);
     rect(100,400,450,100);
     fill(0);
     text("You have entered the waiting room. Here you will greet new patients", 100,400, 450, 500);
+    firstTime = false;
+    currentTime = millis();
   }
   
   void mouseClicked(){
