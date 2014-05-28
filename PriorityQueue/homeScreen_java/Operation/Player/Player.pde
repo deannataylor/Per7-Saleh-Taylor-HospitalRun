@@ -1,11 +1,6 @@
 
-int lives;
-int score;
-
-public patient(){
-   lives = 3;
-   score = 0;
-}
+int lives = 3;
+int score = 0;
 
 void increaseScore(){
   score = score +10;
@@ -24,8 +19,6 @@ int getScore(){
 }
 
 boolean gameOver(){
-  if (lives = 0){
-    return true;
-  }
+  return lives == 0;
 }
 

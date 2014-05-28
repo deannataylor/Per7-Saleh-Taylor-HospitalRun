@@ -97,7 +97,7 @@ void setup() {
   }
   
   void mouseClicked(){
-     if (mouseX > 267 && mouseX < 367 && mouseY > 290 && mouseY < 335){
+     if (mouseX > 267 && mouseX < 367 && mouseY > 290 && mouseY < 335 && part ==0){
         background(0);
         drawing = false;
         part++;
