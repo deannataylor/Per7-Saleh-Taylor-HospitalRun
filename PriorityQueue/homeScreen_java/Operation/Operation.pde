@@ -1,40 +1,72 @@
 PImage person;
+int x = 100;
 
 void setup() {
     size(640,480);
-}
-
-void draw(){
-  size(640,480);
+    size(640,480);
   person = loadImage("OperationPerson.png");
   background(person);
   fill(0);
   // These rectangles mark area NOT in map
   // They are for reference when marking which are will call loseLife()
   // DONT DELETE THESE IN CASE WE NEED TO ADJUST
-  //rect(0, 0, 246, 500); //Left rect
-  //rect(380, 0, 400, 500); // Right rect
-  //rect(200, 0, 200, 164); // Top rect
-  //rect(200, 369, 200, 100); // Bottom rect
-  //rect(245, 160, 20, 193); // left side in dark pink
-  //rect(265, 250, 10, 103); // bottom left
-  //rect(275, 250, 43, 55); // Very middle
-  //rect(279, 179, 150, 55); // Top part
-  //rect(332, 220, 50, 47);  // top right
-  //rect(310, 282, 54, 23); // Middle right
-  //rect(344, 300, 20, 55); // Bottom right
-  //rect(290, 319, 38, 150);
+  /*
+  rect(0, 0, 246, 500); //Left rect
+  rect(380, 0, 400, 500); // Right rect
+  rect(200, 0, 200, 164); // Top rect
+  rect(200, 369, 200, 100); // Bottom rect
+  rect(245, 160, 20, 193); // left side in dark pink
+  rect(265, 250, 10, 103); // bottom left
+  rect(275, 250, 43, 55); // Very middle
+  rect(279, 179, 150, 55); // Top part
+  rect(332, 220, 50, 47);  // top right
+  rect(310, 282, 54, 23); // Middle right
+  rect(344, 300, 20, 55); // Bottom right
+  rect(290, 319, 38, 150);
+  */
+}
+
+void draw(){
+  fill(x);
+  rect(0,0,50,50);  
 }
 
 void mouseDragged(){
   rect(mouseX, mouseY, 1, 1);
+  //need to account for dragging out of path
 } 
-/* So I couldnt figure out how to make it stick, I think this is
-similar to making the figure move in the first page... I would work
-a little more on figuring this out but my head is killing */
 
 
+
+
+void mouseReleased() {
+  if (mouseX>340 && mouseX<390 && mouseY>150 && mouseY<200) {
+    //mouse released on heart
+    //this is where we put a yay you won
+    x = 255;
+  } else {
+    //mouse released in wrong spot
+    //this is where we put a boo you lose
+    x=0;
+  }
+}
+
+
+
+
+
+
+
+
+
+/*
 void mouseClicked(){
+  //I'm confused by this. is this leading to the like
+  //"you're outside the path you lose" part?
+  //cause I think that should be with mouseReleased
+  //we'll discuss tomorrow
+  
+  
   // These are the areas that should trigger losing this game
   if (mouseX < 246 || mouseX > 380 || mouseY < 164 || mouseY > 369){
     // This is just to test that it works:
@@ -76,9 +108,11 @@ void mouseClicked(){
 }
 
 
-void loseLife(){
+//void loseLife(){
   // if statement, we need it so that the if statement 
   // in mouseClicked applies
   // Result is that player loses a life 
-}
+//}
+*/
+
 
