@@ -31,12 +31,12 @@ void setup(){
 }
 
 void draw(){
+  textSize(25);
+  fill(0);
   if (lost){
-    fill(0);
     text(lose, 0, 0,200,200);
   }
   if (won){
-    fill(0);
     text(winner, 0, 0, 200, 200);
   }
   if(cheated) {
@@ -64,13 +64,7 @@ void mouseDragged(){
     ellipse(mouseX, mouseY, 1, 1);
     fill(255);
     
-   /* 
-    if (mouseX < 246 || mouseX > 380 || mouseY < 164 || mouseY > 369){
-      // This is just to test that it works:
-      text(lose, 0, 0, 200, 200);
-      lost = true;
-    }
-    */
+
     if (mouseX < 250 && mouseY < 353){
       lost = true;
     }
