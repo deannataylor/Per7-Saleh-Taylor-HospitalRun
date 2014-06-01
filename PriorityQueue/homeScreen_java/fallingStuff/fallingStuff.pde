@@ -1,12 +1,15 @@
 
-PImage back;
+PImage back, tissue;
 PImage[] boogers;
 int yCor = 30;
-;
+int currentTime;
+int boogerDropped, count;
+
 void setup(){
   size(640, 480);
-  
+  currentTime = millis();
   loadBoogers();
+  tissue = loadImage("tissue.png");
 }
 
 void loadBoogers(){
@@ -20,5 +23,14 @@ void draw(){
   back = loadImage("fallingBack.png");
   background(back);
   image(boogers[0], 30, yCor);
+  image(tissue, 300, 400);
   yCor++;
+}
+
+void mouseDragged(){
+  image(tissue, mouseX, 400);
+}
+
+void mousePressed(){
+  image(tissue, mouseX, 400);
 }
