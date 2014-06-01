@@ -14,16 +14,16 @@ void setup() {
 }
 
 void loadDoctors() {
-  doctors = new PImage[4];
-  for (int i=0;i<4;i++) {
-    doctors[i] = loadImage("Doc" + i + ".png");
+  doctors = new PImage[3];
+  for (int i=0;i<3;i++) {
+    doctors[i] = loadImage("DoctorOne" + i + ".png");
   }
 }
 
   void draw() {
     if (part == 0) {
        setBackground();
-       if (numStep == 4) {
+       if (numStep == 3) {
          numStep = 0;
        }
        image(doctors[numStep],docXcor,68);
