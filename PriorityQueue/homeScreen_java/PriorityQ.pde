@@ -8,11 +8,12 @@ class PriorityQueue {
       return true;
   }
   return false;
-    }
+ }
 
  void insert(Patient p) {
   patients.add(p);
-    }
+ }
+}
 
 Patient mostPriorityPatient() {
   int maxPriority = 0;
@@ -24,12 +25,10 @@ Patient mostPriorityPatient() {
     }
   }
   return patients.remove(PriorityPosition);
-    }
+}
 
  void setPatient(){
   beingWorkedOn = mostPriorityPatient();
-    }
-   
-}
-
+ }
+ }
 

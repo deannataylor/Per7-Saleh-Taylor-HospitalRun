@@ -10,7 +10,7 @@ int currentTime;
 void setup() {
     size(640,480);
     loadDoctors();
-
+    Player p = new Player();
 }
 
 void loadDoctors() {
