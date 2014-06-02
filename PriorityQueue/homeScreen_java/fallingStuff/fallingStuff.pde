@@ -11,6 +11,7 @@ int boogerDropped, count;
 int tissueCor = 300;
 int score = 0;
 boolean lost = false;
+boolean won = false;
 
 void setup(){
   size(640, 480);
@@ -27,39 +28,47 @@ void loadBoogers(){
 }
 
 void draw(){
-  if (!lost){
-    if (score < 100){
+  if (!lost && !won){
+
       back = loadImage("fallingBack.png");
       background(back);
       image(boogers[0], xCor, yCor);
       image(tissue, tissueCor, 400);
-      yCor += 5; // We should make this speed based on the players level
+          if (score < 70){
+      yCor += 6; // We should make this speed based on the players level
+          }
+          else if (score<130) {
+            yCor+=6;
+          }
+          else if (score<=190) {
+            yCor += 6;
+          }
       textSize(45);
       text(score, 20, 45);
     }
-    else if (score == 100){
+    else if (score == 200){
       back = loadImage("fallingBack.png");
       background(back);
       textSize(25);
       text("you won!", 0, 0, 200, 200);
+      won = true;
     }
-  }
   else{
      back = loadImage("fallingBack.png");
       background(back);
       textSize(25);
       text("you lose!", 0, 0, 200, 200);
     }
-  if (yCor == 410 && tissueCor > xCor - 60 && tissueCor < xCor+10){
+  if (yCor >= 406 && yCor <= 420 && tissueCor > xCor - 60 && tissueCor < xCor+10){
     increaseScore();
     disappear();
   }
-  if(yCor > 450){
-    newBooger();
-  }
-  if (yCor == 440){
+  if (yCor >= 440 && yCor < 500){
      lost = true;
   }
+  else if(yCor == 550){
+      newBooger(); 
+  } 
 }
 
 void mouseDragged(){
@@ -67,7 +76,7 @@ void mouseDragged(){
 }
 
 void disappear(){
-  yCor = 500;
+  yCor = 550;
 }
 
 void newBooger(){
