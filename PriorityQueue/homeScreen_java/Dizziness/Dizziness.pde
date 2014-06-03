@@ -24,9 +24,9 @@ void loadBacks() {
 
 void keyPressed(){
   if (keyCode == LEFT){
-    rotateNum = 20;
+    rotateNum += 20;
   }
   else if (keyCode == RIGHT){
-    rotateNum = -20;
+    rotateNum += -20;
   }
 }
