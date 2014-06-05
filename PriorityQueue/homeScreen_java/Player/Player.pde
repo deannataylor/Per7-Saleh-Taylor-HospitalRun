@@ -3,6 +3,11 @@ int lives;
 int score;
 int level = 1;
 
+/* void setup() {
+    size(640,480);
+    loadDoctors();
+} */
+
 public Player(){
    lives = 3;
    score = 0;
