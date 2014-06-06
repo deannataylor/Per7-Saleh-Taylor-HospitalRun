@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.*;
+
 PImage back, HeartOne, bed, waiting;
 int docXcor=-2, numStep=1;
 PImage[] doctors;
@@ -5,14 +8,21 @@ boolean drawing = true;
 String part = "homeScreen";
 boolean firstTime = true;
 int currentTime;
+Patient currentPatient;
+PriorityQ patients = new PriorityQ();
 
+  void addPatients(){
+    for (int i = 0; i< 10; i++){
+      Random r = new Random();
+      patients.insert(new Patient());
+    }
+  }
 
  void setup() {
     size(640,480);
     loadDoctors();
     Player p = new Player();
 } 
-
 
 void loadDoctors() {
   doctors = new PImage[3];
@@ -44,11 +54,31 @@ void loadDoctors() {
       else if (millis() - currentTime > 2000) {
        setWaitWithout();
       }
+      else if (millis() - currentTime == 4000){
+        currentPatient = patients.mostPriorityPatient();
+        part = currentPatient.getDiseaseName();
+      }
        text("X Quit", 550, 30);
     }
     else if (part.equals("infoPage")){
-       setInfo();
+      setInfo();
     }
+    /* else if (part.equals("Surgery")){
+    }
+    else if (part.equals("Bacterial Infection")){
+    }
+    else if (part.equals("Cancer")){
+    }
+    else if (part.equals("Viral Infection")){
+    } 
+    else if (part.equals("Flu")){
+
+    }
+    else if (part.equals("Dizziness")){
+    }
+    else if (part.equals("infoPage")){
+       setInfo();
+    } */
   }
   
   void setBackground() {
@@ -161,3 +191,4 @@ void loadDoctors() {
       }
     }
   }
+

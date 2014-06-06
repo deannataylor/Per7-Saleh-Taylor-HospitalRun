@@ -1,4 +1,5 @@
 
+
 int lives;
 int score;
 int level = 1;
