@@ -1,6 +1,18 @@
 import java.io.*;
 import java.util.*;
 
+// info from operation
+PImage person;
+int x = 100;
+String lose = "You lose!";
+boolean lost = false;
+boolean won = false;
+String winner = "You won!";
+boolean cheated = false;
+int cheatingTime;
+
+// info from homePage
+
 PImage back, HeartOne, bed, waiting;
 int docXcor=-2, numStep=1;
 PImage[] doctors;
@@ -9,7 +21,11 @@ String part = "homeScreen";
 boolean firstTime = true;
 int currentTime;
 Patient currentPatient;
+Play p = new Play();
 PriorityQ patients = new PriorityQ();
+boolean gaming = false;
+
+String section = "home";
 
   void addPatients(){
     for (int i = 0; i< 10; i++){
@@ -32,53 +48,65 @@ void loadDoctors() {
 }
 
   void draw() {
-    if (part.equals("homeScreen")) {
-       setBackground();
-       if (numStep == 3) {
-         numStep = 0;
-       }
-       image(doctors[numStep],docXcor,68);
-       image(doctors[numStep],docXcor - 1000,70);
-       image(doctors[numStep],docXcor - 1200,64);
-       image(doctors[numStep],docXcor - 200,66);
-       image(doctors[numStep],docXcor - 400,72);
-       image(doctors[numStep],docXcor - 600,71);
-       image(doctors[numStep],docXcor - 800,68);
-       docXcor++;
-       numStep++;
-    }
-    else if (part.equals("waitingRoom")){
-      if(firstTime){
-        setWaitWith();
+    if (!gaming){
+     if (part.equals("homeScreen")) {
+        setBackground();
+        if (numStep == 3) {
+          numStep = 0;
+         }
+         image(doctors[numStep],docXcor,68);
+         image(doctors[numStep],docXcor - 1000,70);
+         image(doctors[numStep],docXcor - 1200,64);
+         image(doctors[numStep],docXcor - 200,66);
+         image(doctors[numStep],docXcor - 400,72);
+         image(doctors[numStep],docXcor - 600,71);
+         image(doctors[numStep],docXcor - 800,68);
+         docXcor++;
+         numStep++;
       }
-      else if (millis() - currentTime > 2000) {
-       setWaitWithout();
+      else if (part.equals("waitingRoom")){
+        if(firstTime){
+          setWaitWith();
+        }
+        else if (millis() - currentTime > 2000) {
+         setWaitWithout();
+         gaming = true;
+        }
+        else if (millis() - currentTime == 4000){
+          currentPatient = patients.mostPriorityPatient();
+          part = currentPatient.getDiseaseName();
+        }
+         text("X Quit", 550, 30);
       }
-      else if (millis() - currentTime == 4000){
-        currentPatient = patients.mostPriorityPatient();
-        part = currentPatient.getDiseaseName();
+      else if (part.equals("infoPage")){
+        setInfo();
       }
-       text("X Quit", 550, 30);
     }
-    else if (part.equals("infoPage")){
-      setInfo();
+    if (gaming){
+      currentPatient = patients.mostPriorityPatient();
+      part = currentPatient.getDiseaseName();
+      if (part.equals("Surgery")){
+        background(0);
+      }
+      else if (part.equals("Bacterial Infection")){
+        background(0);
+      }
+      else if (part.equals("Cancer")){
+        background(0);
+      }
+      else if (part.equals("Viral Infection")){
+        background(0);
+      } 
+      else if (part.equals("Flu")){
+        background(0);
+      }
+      else if (part.equals("Dizziness")){
+        background(0);
+      }
+      else if (part.equals("infoPage")){
+         setInfo();
+      }
     }
-    /* else if (part.equals("Surgery")){
-    }
-    else if (part.equals("Bacterial Infection")){
-    }
-    else if (part.equals("Cancer")){
-    }
-    else if (part.equals("Viral Infection")){
-    } 
-    else if (part.equals("Flu")){
-
-    }
-    else if (part.equals("Dizziness")){
-    }
-    else if (part.equals("infoPage")){
-       setInfo();
-    } */
   }
   
   void setBackground() {
@@ -136,12 +164,12 @@ void loadDoctors() {
        fill(0);
        text("Diseases:", 20, 200);
        textSize(20);
-       text("  + Enter disease here - mini game description", 20, 230);
-       text("  + Enter disease here - mini game description", 20, 260);
-       text("  + Enter disease here - mini game description", 20, 290);
-       text("  + Enter disease here - mini game description", 20, 320);
-       text("  + Enter disease here - mini game description", 20, 350);
-       text("  + Enter disease here - mini game description", 20, 380);
+       text("  + Heart Disease - Operation maze to the heart", 20, 230);
+       text("  + Dizziness - Keep the patient from falling", 20, 260);
+       text("  + Flu - Catch your boogers with the tissue", 20, 290);
+       text("  + Infection - Help antibiotic chase pathogen", 20, 320);
+       text("  + Cancer - Break the tumor apart", 20, 350);
+       text("  + Virus - Eat up the viral cells", 20, 380);
        fill(220, 0, 0);
        rect(250, 410, 150, 50);
        textSize(30);
@@ -175,7 +203,12 @@ void loadDoctors() {
           background(0);
           drawing = false;
           part = "waitingRoom";
-       }  rect(290, 350, 50, 30);
+          currentTime = millis();
+          if (millis() - currentTime == 4000){
+            gaming = true;
+          }
+       }  
+       rect(290, 350, 50, 30);
        if (mouseX > 290 && mouseX < 340 && mouseY > 350 && mouseY < 380){
           part = "infoPage";
        }

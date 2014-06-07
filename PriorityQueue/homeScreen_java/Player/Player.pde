@@ -1,15 +1,10 @@
-
+public class Play{
 
 int lives;
 int score;
 int level = 1;
 
-/* void setup() {
-    size(640,480);
-    loadDoctors();
-} */
-
-public Player(){
+public Play(){
    lives = 3;
    score = 0;
 }
@@ -50,5 +45,6 @@ boolean gameOver(){
 void printStats(){
   System.out.println("lives: " + getLives());
   System.out.println("Score: " + getScore());
+}
 }
 
