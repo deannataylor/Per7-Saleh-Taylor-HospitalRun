@@ -1,7 +1,11 @@
 import java.io.*;
 import java.util.*;
 
+<<<<<<< HEAD
 public class Patient{
+=======
+class Patient {
+>>>>>>> 2e279a3afedc700b8a915c15b8228f61c3822a0f
 
     String name;
     String diseaseName;
@@ -9,9 +13,15 @@ public class Patient{
     int priority;
     Random r = new Random();
 
+<<<<<<< HEAD
   public Patient() {
     assignName();
     assignDisease();
+=======
+ public Patient() {
+  assignName();
+  assignDisease();
+>>>>>>> 2e279a3afedc700b8a915c15b8228f61c3822a0f
     }
 
  void assignName() {
@@ -32,7 +42,11 @@ public class Patient{
   } else if (disease == 3) {
       diseaseName = "Viral Infection";
   } else if (disease == 4) {
+<<<<<<< HEAD
       diseaseName = "Flu";
+=======
+      diseaseName = "Osteoporosis";
+>>>>>>> 2e279a3afedc700b8a915c15b8228f61c3822a0f
   } else if (disease == 5) {
       diseaseName = "Dizziness";
   }
@@ -57,4 +71,8 @@ public class Patient{
 String getName() {
   return name;
     }
+<<<<<<< HEAD
 }
+=======
+
+>>>>>>> 2e279a3afedc700b8a915c15b8228f61c3822a0f
