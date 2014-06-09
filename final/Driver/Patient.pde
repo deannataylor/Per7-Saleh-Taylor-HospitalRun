@@ -8,11 +8,19 @@ class Patient {
     String diseaseName;
     int disease;
     int priority;
+    int lastTime;
     Random r = new Random();
 
   public Patient() {
     assignName();
     assignDisease();
+    lastTime = millis();
+  }
+  
+  void updatePriority() {
+    if (millis() - lastTime > 20000) {
+      priority++;
+    }
   }
 
  void assignName() {
@@ -22,12 +30,10 @@ class Patient {
 
  void assignDisease() {
    disease = r.nextInt(2);
-   if (disease == 0) {
+   if (disease ==0) {
    diseaseName = "Surgery";
-   priority = 5;
    } else {
      diseaseName = "Flu";
-     priority = 2;
    }
    
    /*
@@ -50,9 +56,6 @@ class Patient {
   */
     }
 
- void updatePriority() {
-  priority = priority++;
-    }
 
  int getPriority() {
   return priority;

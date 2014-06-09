@@ -11,8 +11,15 @@ class PriorityQ{
   patients.add(p);
   len++;
  }
+ 
+ void updateAll() {
+   for (Patient a: patients) {
+     a.updatePriority();
+   }
+ }
 
 Patient mostPriorityPatient() {
+  updateAll();
   int maxPriority = 0;
   int PriorityPosition = 0;
   for (int i=0;i<patients.size();i++){
