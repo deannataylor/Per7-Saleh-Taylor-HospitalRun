@@ -40,7 +40,7 @@ class Patient {
    }
    else{
      diseaseName = "HeartAttack";
-     setPriority(4);
+     setPriority(6);
    }
    
    /*
