@@ -82,16 +82,19 @@ void draw() {
         currentPatient = patients.mostPriorityPatient();
         part = currentPatient.getDiseaseName();
         a = new Operation();
-        a.draw();
+        /* a.draw(); */
       }
     }
     if (part.equals("Surgery")) {
       if (newGame) {
-      a = new Operation();
-      } else if (a.finished()) {
+        //a = new Operation();
+        a.draw();
+      } 
+      else if (a.finished()) {
         newGame = true;
         first = true;
         part = "waitingRoom";
+        currentTime = millis();
       }
       else {
         a.draw();
@@ -104,6 +107,7 @@ void draw() {
         newGame = true;
         first = true;
         part = "waitingRoom";
+        currentTime = millis();
       }
       else {
         b.draw();
