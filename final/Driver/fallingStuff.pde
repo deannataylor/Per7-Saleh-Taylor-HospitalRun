@@ -23,6 +23,14 @@ class fallingStuff {
     
   }
   
+  boolean getWon(){
+    return won;
+  }
+  
+  boolean getLost(){
+    return lost;
+  }
+  
   void loadBoogers() {
     boogerDesigns = new PImage[3];
     for (int i=0;i<3;i++) {
@@ -133,6 +141,6 @@ class fallingStuff {
   }
   
   boolean finished() {
-  return (won || lost);
-}
+    return (won || lost);
+  }
 }

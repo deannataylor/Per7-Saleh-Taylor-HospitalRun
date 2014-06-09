@@ -23,6 +23,7 @@ boolean newGame, first;
 
 void setup() {
   size(640,480);
+  Play p = new Play();
   loadDoctors();
   docXcor = -1;
   numStep = 1;
@@ -91,10 +92,17 @@ void draw() {
         a.draw();
       } 
       else if (a.finished()) {
+        if (a.getWon()){
+          score+=10;
+        }
+        else if (a.getLost()){
+          lives--;
+        }
         newGame = true;
         first = true;
         part = "waitingRoom";
         currentTime = millis();
+        gaming = false;
       }
       else {
         a.draw();
@@ -103,10 +111,18 @@ void draw() {
     if (part.equals("Flu")) {
       if (newGame) {
         b = new fallingStuff();
-      } else if (b.finished()) {
+      } 
+      else if (b.finished()) {
+        if (b.getWon()){
+          score += 10;
+        }
+        else if (b.getLost()){
+          lives--;
+        }
         newGame = true;
         first = true;
         part = "waitingRoom";
+        gaming = false;
         currentTime = millis();
       }
       else {
@@ -176,9 +192,9 @@ void setWaitWith() {
 
 void setWaitWithout() {
   background(waitBack);
+  fill(0);
   text("score: " + score, 30,30);
   text("lives: " + lives, 400,30);
-
 }
 
   void setInfo(){

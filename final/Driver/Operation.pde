@@ -14,6 +14,14 @@ class Operation{
     background(person);
   }
   
+  boolean getWon(){
+    return won;
+  }
+  
+  boolean getLost(){
+    return lost;
+  }
+  
   private void draw(){
     textSize(25);
     fill(0);
