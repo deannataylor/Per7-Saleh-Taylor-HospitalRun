@@ -105,6 +105,7 @@ void draw() {
         currentTime = millis();
         gaming = false;
         part = "waitingRoom";
+        a = null;
       }
       else {
         a.draw();
@@ -127,6 +128,7 @@ void draw() {
         gaming = false;
         currentTime = millis();
         part = "waitingRoom";
+        b = null;
       }
       else {
         b.draw();

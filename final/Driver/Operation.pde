@@ -18,6 +18,10 @@ class Operation{
     return won;
   }
   
+  void quit(){
+    exit();
+  }
+  
   boolean getLost(){
     return lost;
   }

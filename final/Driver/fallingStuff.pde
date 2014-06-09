@@ -38,6 +38,10 @@ class fallingStuff {
     }
   }
   
+  void quit(){
+    exit();
+  }
+  
   void draw() {
     background(back);
     image(tissue,tissueCor,400);
