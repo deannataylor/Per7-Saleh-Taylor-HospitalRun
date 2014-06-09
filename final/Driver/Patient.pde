@@ -19,28 +19,33 @@ class Patient {
   
   void updatePriority() {
     if (millis() - lastTime > 20000) {
-      priority = priority + (priority/4);
+      if (diseaseName.equals("Surgery")){
+        priority = priority + (priority/2);
+      }
+      else if (diseaseName.equals("HeartAttack")){
+        priority = priority*2;
+      }
+      else if(diseaseName.equals("Flu")){
+        priority = priority + (priority/4);
+      }
     }
   }
 
  void assignName() {
   String[] names = {"Ender Wiggin", "Ebenezer Scrooge", "Poseidon", "Robin Hood", "Felix the Cat", "Dracula", "Guybrush Threepwood", "King Arthur", "Donald Knuth", "Pinocchio", "Frankenstein", "Sherlock Holmes"};
   name = names[r.nextInt(names.length)];
-    }
+ }
 
  void assignDisease() {
    disease = r.nextInt(3);
    if (disease ==0) {
    diseaseName = "Surgery";
-   setPriority(4);
    } 
    else if (disease ==1) {
      diseaseName = "Flu";
-     setPriority(2);
    }
    else{
      diseaseName = "HeartAttack";
-     setPriority(6);
    }
    
    /*
