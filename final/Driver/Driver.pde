@@ -16,6 +16,7 @@ fallingStuff b;
 
 int score;
 int lives;
+int games;
 
 PriorityQ patients;
 Patient currentPatient;
@@ -83,6 +84,7 @@ void draw() {
         currentPatient = patients.mostPriorityPatient();
         part = currentPatient.getDiseaseName();
         a = new Operation();
+        b = new fallingStuff();
         /* a.draw(); */
       }
     }
@@ -100,9 +102,9 @@ void draw() {
         }
         newGame = true;
         first = true;
-        part = "waitingRoom";
         currentTime = millis();
         gaming = false;
+        part = "waitingRoom";
       }
       else {
         a.draw();
@@ -110,7 +112,8 @@ void draw() {
     }
     if (part.equals("Flu")) {
       if (newGame) {
-        b = new fallingStuff();
+        //b = new fallingStuff();
+        b.draw();
       } 
       else if (b.finished()) {
         if (b.getWon()){
@@ -121,9 +124,9 @@ void draw() {
         }
         newGame = true;
         first = true;
-        part = "waitingRoom";
         gaming = false;
         currentTime = millis();
+        part = "waitingRoom";
       }
       else {
         b.draw();
