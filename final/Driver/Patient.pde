@@ -19,7 +19,7 @@ class Patient {
   
   void updatePriority() {
     if (millis() - lastTime > 20000) {
-      priority++;
+      priority = priority + (priority/4);
     }
   }
 
@@ -29,11 +29,18 @@ class Patient {
     }
 
  void assignDisease() {
-   disease = r.nextInt(2);
+   disease = r.nextInt(3);
    if (disease ==0) {
    diseaseName = "Surgery";
-   } else {
+   setPriority(4);
+   } 
+   else if (disease ==1) {
      diseaseName = "Flu";
+     setPriority(2);
+   }
+   else{
+     diseaseName = "HeartAttack";
+     setPriority(4);
    }
    
    /*
@@ -55,6 +62,10 @@ class Patient {
   }
   */
     }
+    
+ void setPriority(int i){
+   priority = i;
+ }
 
 
  int getPriority() {
@@ -72,7 +83,6 @@ class Patient {
 String getName() {
   return name;
     }
-
 }
 
 

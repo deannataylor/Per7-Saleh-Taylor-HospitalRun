@@ -13,6 +13,7 @@ PImage welcomeBack, HeartOne, bed, waitBack;
 
 Operation a;
 fallingStuff b;
+HeartAttack c;
 
 int score;
 int lives;
@@ -85,7 +86,7 @@ void draw() {
         part = currentPatient.getDiseaseName();
         a = new Operation();
         b = new fallingStuff();
-        /* a.draw(); */
+        c = new HeartAttack();
       }
     }
     if (part.equals("Surgery")) {
@@ -132,6 +133,29 @@ void draw() {
       }
       else {
         b.draw();
+      }
+    }
+    if (part.equals("HeartAttack")) {
+      if (newGame) {
+        //b = new fallingStuff();
+        c.draw();
+      } 
+      else if (c.finished()) {
+        if (c.getWon()){
+          score += 10;
+        }
+        else if (c.getLost()){
+          lives--;
+        }
+        newGame = true;
+        first = true;
+        gaming = false;
+        currentTime = millis();
+        part = "waitingRoom";
+        c = null;
+      }
+      else {
+        c.draw();
       }
     }
   }
@@ -244,6 +268,19 @@ void mouseClicked(){
      if (mouseX > 250 && mouseX < 400 && mouseY > 410 && mouseY < 460){
        part = "welcomeScreen";
      }
+  }
+  else if (part.equals("heartAttack")){
+    c.xLarge += 20;
+    c.yLarge += 20;
+    c.xCor -= 10;
+    c.yCor -= 10;
+    c.hits++;
+    if (millis() - currentTime > 7500 && c.hits < 25){
+     c.status = "YOU LOSE";
+    }
+    else if (c.hits > 25){
+      c.status = "YOU WIN";
+    }
   }
 }
   
