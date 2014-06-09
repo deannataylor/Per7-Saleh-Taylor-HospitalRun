@@ -192,6 +192,7 @@ void setWaitWith() {
   fill(255);
   rect(100,400,450,100);
   fill(0);
+  textSize(20);
   text("You have entered the waiting room. Here you will greet new patients.", 100,400, 450, 500);
 }
 
