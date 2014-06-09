@@ -220,11 +220,10 @@ void setWaitWithout() {
      text("Diseases:", 20, 200);
      textSize(20);
      text("  + Heart Disease - Operation maze to the heart", 20, 230);
-     text("  + Dizziness - Keep the patient from falling", 20, 260);
-     text("  + Flu - Catch your boogers with the tissue", 20, 290);
-     text("  + Infection - Help antibiotic chase pathogen", 20, 320);
-     text("  + Cancer - Break the tumor apart", 20, 350);
-     text("  + Virus - Eat up the viral cells", 20, 380);
+     text("  + Flu - Catch your boogers with the tissue", 20, 260);
+     text("  + Heart Attack - Revive heart as fast as you can", 20, 290);
+     text("  + Cancer - Break the tumor apart", 20, 320);
+     text("  + Virus - Eat up the viral cells", 20, 350);
      fill(220, 0, 0);
      rect(250, 410, 150, 50);
      textSize(30);
