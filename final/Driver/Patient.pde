@@ -22,10 +22,12 @@ class Patient {
 
  void assignDisease() {
    disease = r.nextInt(2);
-   if (disease ==0) {
+   if (disease == 0) {
    diseaseName = "Surgery";
+   priority = 5;
    } else {
      diseaseName = "Flu";
+     priority = 2;
    }
    
    /*
